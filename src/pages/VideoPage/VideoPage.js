@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import ReactPlayer from 'react-player/lazy';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import './VideoPage.css';
 
 export const VideoPage = (props) => {
-    const [ videos ] = useState(props.videos);
+    const { videos } = useSelector(state => state)
     const [ video, setVideo ] = useState();
     const { videoId } = useParams();
     
