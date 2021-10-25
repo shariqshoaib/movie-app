@@ -1,0 +1,38 @@
+.video-page-content {
+    display: flex;
+    flex-flow: column;
+}
+
+.video-content > .video-player {
+    height: 600px;
+}
+
+.video-content > .video-details {
+    align-items: center;
+    background-color: rgb(253, 253, 253);
+    display: flex;
+    height: 300px;
+    justify-content: center;
+}
+
+.suggested-video {
+    background-color: rgb(231, 231, 231);
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    display: flex;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.suggested-details {
+    align-self: center;
+    padding-left: 20px;
+    width: 100%;
+}
+
+.suggested-thumbnail {
+    background-color: black;
+    border-right: 1px solid black;
+    padding: 10px 10px;
+    width: 600px;
+}
