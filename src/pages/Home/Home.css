@@ -1,0 +1,48 @@
+
+.home >.videos{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 18px;
+    justify-content: flex-start;
+    margin-top: 20px;
+    width: 100%;
+}
+  
+.video{
+    flex-flow: column wrap;
+    flex: auto;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.video-details{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+}
+  
+.video-player{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.video-thumbnail{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    max-width: 79%;
+}
+
+.video-thumbnail > img{
+    margin-right: 5px;
+}
+
+.video-views{
+    color: grey;
+    margin-top: 5px;
+}
