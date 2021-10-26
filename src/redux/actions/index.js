@@ -1,2 +1,2 @@
-export { setVideos } from './videoActions';
+export { fetchVideos, fetchVideosSuccess, fetchVideoFailure } from './videoActions';
 
