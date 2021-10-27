@@ -7,14 +7,13 @@ import './Header.css'
 
 
 const Header = () => {
-
     const videoElement = <MdVideoCall fontSize='2.8rem' />;
     const viewElement = <MdViewComfy fontSize='2.8rem' />;
     const bellElement = <AiTwotoneBell fontSize='2.8rem' />;
 
     return(
         <div className='header'>
-            <Link to={`/`} style={{ textDecoration:'none', color:'black' }} >
+            <Link to={ `/` } style={{ textDecoration:'none', color:'black' }} >
                 <div className='logo'>
                     <FaYoutube color='red' fontSize='3rem'/>
                     <span>Movie App</span>

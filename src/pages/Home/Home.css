@@ -1,7 +1,16 @@
+:root{
+    --videoColor: lightgray;
+    --videoDetailsColor: rgb(201, 201, 201);
+}
+
+.home{
+    display: flex;
+    flex-flow: row wrap;
+}
 
 .home > .videos {
     display: flex;
-    flex-wrap: row wrap;
+    flex-flow: row wrap;
     font-size: 18px;
     justify-content: center;
     margin: 20px;
@@ -9,13 +18,18 @@
 }
   
 .video {
+    background-color: var(--videoColor);
     display: flex;
-    flex-flow: column;
-    margin-bottom: 20px;
-    width: 400px;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 10px 10px;
+    width: 300px;
+    border: 1px solid black;
 }
 
 .video-details {
+    background-color: var(--videoDetailsColor);
+    height: 100px;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -43,6 +57,6 @@
 }
 
 .video-views {
-    color: grey;
+    color: var(--videoDetailsColor);
     margin-top: 5px;
 }

@@ -1,12 +1,14 @@
+import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import React, { useState, useEffect } from 'react'
 import ReactPlayer from 'react-player/lazy';
+import { selectVideos, isLoading } from '../../redux/videos/selectors';
 import './VideoPage.css';
 
-export const VideoPage = (props) => {
-    const { data } = useSelector(state => state.videos)
+export const VideoPage = () => {
+    const data = useSelector(selectVideos);
+    const loading = useSelector(isLoading);
     const [ video, setVideo ] = useState({});
     const { videoId } = useParams();
 
@@ -15,10 +17,9 @@ export const VideoPage = (props) => {
     const setVideoHandle = () => {
         let currentVideo = data[videoId];
         setVideo(currentVideo);
-        
     }
 
-    if(!video) return <div>Loading</div>
+    if(loading && !video) return <div>isLoading</div>
     return (
         <>
             <div className='video-page-content'>
@@ -33,7 +34,6 @@ export const VideoPage = (props) => {
                             controls 
                         />
                     </div>
-
                     <div className='video-details'>
                         <div className='video-views'>
                             <h1>{ video.title }</h1>
@@ -57,7 +57,6 @@ export const VideoPage = (props) => {
                                         height='100%'
                                     />
                                 </div>
-                                
                                 <div className='suggested-details'>
                                     <h2>{ video.title }</h2>
                                     <div>{ video.views }</div>
