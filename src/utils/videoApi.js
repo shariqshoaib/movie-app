@@ -1,5 +1,5 @@
 
-const getData = () => {
+const videoApi = () => {
 
   const videosData = [
     {
@@ -31,4 +31,4 @@ const getData = () => {
   return videosData;
 }
 
-export default getData;
+export default videoApi;

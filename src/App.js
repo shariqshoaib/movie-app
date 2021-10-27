@@ -1,35 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
-import { useDispatch } from 'react-redux';
-import { actionCreators } from './redux'
-import Header from './components/Header/Header';
-import Home from './pages/Home/Home';
-import VideoPage from './pages/VideoPage/VideoPage';
-import Selectors from './redux/selectors';
-import Api from './utils/Api'
+import { useDispatch, useSelector } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { actionCreators } from './redux/videos/actions'
+import Header from './components/Header';
+import Home from './pages/Home';
+import VideoPage from './pages/VideoPage';
+import { selectVideos, isLoading } from './redux/videos/selectors';
+import videoApi from './utils/videoApi'
 
 const App = () => {
-  const  { data, loading }  = Selectors();
-  const dispatch = useDispatch(); 
-  const { fetchVideos, fetchVideosSuccess, fetchVideoFailure } = bindActionCreators(actionCreators, dispatch)
+  const data = useSelector(selectVideos);
+  const loading = useSelector(isLoading);
 
+  const dispatch = useDispatch(); 
+  const { 
+    fetchVideos, 
+    fetchVideosSuccess, 
+    fetchVideoFailure 
+  } = bindActionCreators(actionCreators, dispatch)
+  
   const fetch = async () => {
     fetchVideos();
-    try{
-      let data = Api();
+    try {
+      let data = videoApi();
       fetchVideosSuccess( data );
     }
-    catch(e){
-      fetchVideoFailure(e);
+    catch(error) {
+      fetchVideoFailure(error);
     }
   }
 
-  useEffect( () => {
-    fetch();
-  }, [])
+  useEffect( () => fetch(), [])
 
-  if ( loading ) return <div>loading...</div>
+  if (loading) return <div>isLoading...</div>
 
   return (
     <div className="App">
@@ -37,10 +41,10 @@ const App = () => {
       <Header />
         <Switch>
           <Route path='/' exact > 
-            <Home videos={ data } />
+            <Home />
           </Route>
           <Route path='/video/:videoId' > 
-            <VideoPage />
+            <VideoPage video= { data } />
           </Route>
         </Switch>
       </Router>

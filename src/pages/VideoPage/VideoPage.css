@@ -1,3 +1,9 @@
+:root{
+    --videoDetails: rgb(75, 75, 75);
+    --suggestedVideoColor: rgb(201, 201, 201);
+    --thumbnailColor: black;
+}
+
 .video-page-content {
     display: flex;
     flex-flow: column;
@@ -9,14 +15,15 @@
 
 .video-content > .video-details {
     align-items: center;
-    background-color: rgb(253, 253, 253);
+    background-color: var(--videoDetails);
     display: flex;
-    height: 300px;
+    height: 200px;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .suggested-video {
-    background-color: rgb(231, 231, 231);
+    background-color: var(--suggestedVideoColor);
     border-bottom: 2px solid black;
     border-top: 2px solid black;
     display: flex;
@@ -31,7 +38,7 @@
 }
 
 .suggested-thumbnail {
-    background-color: black;
+    background-color: var(--thumbnailColor);
     border-right: 1px solid black;
     padding: 10px 10px;
     width: 600px;
